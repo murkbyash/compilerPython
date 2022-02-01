@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>pyyCompiler</title>
+  </head>
+
+ <style>
+
+    h1 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+   .twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px; text-transform:uppercase; width:160px; text-align:center; margin:auto; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: #c50000;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color: #c50000;
+    content: '';
+    display: block;
+  position:absolute; right:0; bottom:0;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 0.25em;
+}
+
+
+
+div {
+
+  position: relative;
+  margin: 10px auto;
+}
+
+h2 {
+  font-family: arial;
+  color: #333;
+  font-size: 20px;
+
+  margin: 0 10px;
+
+}
+
+
+
+
+
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.footer .heading {
+  max-width: 1010px;
+  width: 90%;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.footer .content {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1.5rem;
+}
+
+.footer .content p {
+  margin-bottom: 1.3rem;
+  color: rgba(0, 0, 0, 0.829);
+}
+
+.footer .content a {
+  text-decoration: none;
+  color: rgb(0, 0, 0, 0.829);
+}
+
+.footer .content a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.829);
+}
+
+.footer .content h4 {
+  margin-bottom: 1.3rem;
+  font-size: 19px;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+footer hr {
+  margin: 2rem 0;
+}
+
+@media (max-width: 767px) {
+  .footer .content {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+  }
+
+  .footer {
+    position: unset;
+  }
+}
+
+
+
+
+
+ </style>
+
+
+  <body style="font-family:Verdana;"><br>
+
+
+
+    <div class="twelve">
+  <h1>pyy.Compiler</h1>
+</div>
+    <form method ='post' action="/runcode">
+      {% csrf_token %}
+  <div class="form-group"  style="margin-left:50px;margin-right:50px;>
+    <br>
+    <label for= "codearea"></label>
+      <div>
+  <span class="top right"></span>
+  <span class="top left"></span>
+  <h2>&lt; / &gt; Online Compiler</h2>
+  <span class="bottom right"></span>
+  <span class="bottom left"></span>
+  
+
+</div>
+       <textarea type="text" class="form-control" id="codearea" name="codearea" rows="10" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">{{ code }}</textarea>
+
+  </div>
+
+   <div class="form-group" style="margin-left:50px;margin-right:50px;" >
+    <label for="outputarea">Output</label>
+      <textarea type="text" class="form-control" id="outputarea" name = 'outputarea' rows = "4" disabled>{{ output }}</textarea>
+
+  </div>
+
+
+
+  <button type="submit" class="btn btn-success" style="margin-left:50px;">Submit</button>
+</form>
+
+  <footer>
+        <hr />
+        &copy; 2021 COPYRIGHT created by @ash.
+      </footer>
+  </body>
+
+
+
+</html>
+
